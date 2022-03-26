@@ -1,0 +1,10 @@
+^C:\USERS\FABIA\DESKTOP\CC5512MOTOR\HITO1\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/fabia/Desktop/CC5512Motor/Hito1 -BC:/Users/fabia/Desktop/CC5512Motor/Hito1/build --check-stamp-file C:/Users/fabia/Desktop/CC5512Motor/Hito1/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

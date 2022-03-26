@@ -1,0 +1,4 @@
+C:/Users/fabia/Desktop/CC5512Motor/Hito1/build/CMakeFiles/arrow_lib.dir
+C:/Users/fabia/Desktop/CC5512Motor/Hito1/build/CMakeFiles/main.dir
+C:/Users/fabia/Desktop/CC5512Motor/Hito1/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/fabia/Desktop/CC5512Motor/Hito1/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\bounding_box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\geometric_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\vector2d_functions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\vector2d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\bounding_box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\geometric_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\vector2d_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\vector2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\fabia\Desktop\CC5512Motor\Hito1\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{B4967689-EABC-3342-AE60-4264DD89DC4B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F5F289D5-870D-33F5-BB52-63445DF1E155}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
