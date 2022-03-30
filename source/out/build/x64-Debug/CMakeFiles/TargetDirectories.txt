@@ -1,0 +1,4 @@
+C:/Users/fabia/Desktop/CC5512Motor/source/out/build/x64-Debug/CMakeFiles/arrow_lib.dir
+C:/Users/fabia/Desktop/CC5512Motor/source/out/build/x64-Debug/CMakeFiles/main.dir
+C:/Users/fabia/Desktop/CC5512Motor/source/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+C:/Users/fabia/Desktop/CC5512Motor/source/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
