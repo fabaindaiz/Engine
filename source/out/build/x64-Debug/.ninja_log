@@ -1,9 +1,0 @@
-# ninja log v5
-21	1094	6700308296464056	CMakeFiles/arrow_lib.dir/geometric_functions.cpp.obj	41ce8119e801c145
-1	1113	6700308296514095	CMakeFiles/arrow_lib.dir/bounding_box.cpp.obj	2206f2f236fb4c89
-12	1117	6700308296524057	CMakeFiles/arrow_lib.dir/vector2d.cpp.obj	1ef0a4f47c3cfb9
-16	1122	6700308296674047	CMakeFiles/arrow_lib.dir/vector2d_functions.cpp.obj	20ae82f3abfebfdf
-7	1124	6700308296434058	CMakeFiles/arrow_lib.dir/actor.cpp.obj	71f33b3f76ca2fcb
-1125	1227	6700308297824042	arrow_lib.lib	62e1b049ea96413b
-25	1473	6700308300284586	CMakeFiles/main.dir/main.cpp.obj	4300a70e1959b1d5
-1474	2000	6700308305424046	main.exe	95f243514127bfd7

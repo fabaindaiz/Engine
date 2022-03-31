@@ -1,28 +1,18 @@
 cmake_minimum_required(VERSION 3.20)
 set(CMAKE_LEGACY_CYGWIN_WIN32 OFF)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-project(code_as_static_library C CXX)
+find_package(OpenGL REQUIRED)
 
-add_library(arrow_lib STATIC
-    "actor.h"
-    "actor.cpp"
-    "bounding_box.h"
-    "bounding_box.cpp"
-    "geometric_functions.h"
-    "geometric_functions.cpp"
-    "vector2d_functions.h"
-    "vector2d_functions.cpp"
-    "vector2d.h"
-    "vector2d.cpp"
-)
+project(rpg C CXX)
 
-add_executable(main "main.cpp")
-set_property(TARGET main PROPERTY CXX_STANDARD 20)
+set(THIRD_PARTY_INCLUDE_DIRECTORIES 
+	"${CMAKE_CURRENT_SOURCE_DIR}/third-party/glad/include"
+	"${CMAKE_CURRENT_SOURCE_DIR}/third-party/glfw-3.3.6/include")
+set(ENGINE_INCLUDE_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/source")
 
-# Here we bind the library
+set(THIRD_PARTY_LIBRARIES glad glfw)
 
-## Headers are in this directory
-target_include_directories(main PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-
-## We need the path to the librady binary
-target_link_libraries(main PRIVATE arrow_lib)
+add_subdirectory(third-party)
+add_subdirectory(source)
+add_subdirectory(rpg)
