@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "third-party/glfw-3.3.6/tests",
+		"source" : "third-party/glfw-3.3.6/tests"
+	}
+}
