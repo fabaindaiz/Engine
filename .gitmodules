@@ -1,0 +1,6 @@
+[submodule "source/ext/glfw"]
+	path = source/ext/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "source/ext/bgfx.cmake"]
+	path = source/ext/bgfx.cmake
+	url = https://github.com/bkaradzic/bgfx.cmake.git
