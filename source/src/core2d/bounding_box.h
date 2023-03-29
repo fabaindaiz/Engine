@@ -19,5 +19,8 @@ public:
     void setPosition(const Vector2D& position);
     void setSize(const Vector2D& size);
 
+    bool inside(const Vector2D& point);
+    void enclose(const Vector2D& point);
+
     bool collide(const BoundingBox& box) const;
 };

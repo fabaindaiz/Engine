@@ -34,6 +34,18 @@ void BoundingBox::setSize(const Vector2D& size)
     this -> size = size;
 }
 
+bool BoundingBox::inside(const Vector2D& point)
+{
+    return true;
+}
+
+void BoundingBox::enclose(const Vector2D& point)
+{
+    if (this -> inside(point))
+        return;
+    const Vector2D size = point - position;
+}
+
 bool BoundingBox::collide(const BoundingBox& box) const
 {
     const Vector2D distance = this -> getPosition() - box.getPosition();

@@ -61,5 +61,5 @@ bool Actor::collide(const Actor& box) const
 void Actor::update(float delta_time)
 {
     this -> position = position + ( delta_time * this -> getVelocity() );
-    this->bounding.setPosition(this -> position);
+    this -> bounding.setPosition(this -> position);
 }

@@ -4,6 +4,10 @@ Game Engine focused on Role-playing Games.
 
 * Hecho en C++ usando GLFW y OpenGL
 
+## Instalación
+
+1. git submodule update --init --recursive
+
 ## Como ejecutar
 
 1. Clona el repositorio localmente
