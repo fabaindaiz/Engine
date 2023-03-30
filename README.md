@@ -23,3 +23,17 @@ Game Engine focused on Role-playing Games.
 
 * Perdi mucho tiempo entendiendo los cmake y como añadir glad y glfw
 * Por ahora se abre una ventana y el resto es output de consola
+
+## Referencias
+
+#### Quick start
+
+* [glfw getting started ](https://www.glfw.org/docs/3.3/quick.html)
+* [bgfx quick start](https://bkaradzic.github.io/bgfx/build.html#quick-start)
+* [bgfx hello](https://dev.to/pperon/hello-bgfx-4dka)
+
+#### Examples
+
+* [glad examples](https://github.com/Dav1dde/glad/tree/glad2/example/c)
+* [glfw examples](https://github.com/glfw/glfw/tree/master/examples)
+* [bgfx examples](https://bkaradzic.github.io/bgfx/examples.html)
