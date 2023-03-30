@@ -7,7 +7,6 @@
 
 int main()
 {
-    renderInit();
 
     Actor actor1{Vector2D{-20, 0}, Vector2D{0.5f, 0.5f}, Vector2D{ 1,  1}};
     Actor actor2{Vector2D{ 20, 0}, Vector2D{0.5f, 0.5f}, Vector2D{-1, 1}};
@@ -44,6 +43,8 @@ int main()
     std::cout << std::endl;
 
     std::cout << "Program ended with no errors" << std::endl;
+
+    renderInit();
 
     return 0;
 }
