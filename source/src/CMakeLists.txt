@@ -16,3 +16,4 @@ function(add_engine_subdir FOLDER)
 endfunction(add_engine_subdir)
 
 add_engine_subdir(core2d)
+add_engine_subdir(render)
