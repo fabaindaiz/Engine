@@ -2,7 +2,7 @@
 #include "bgfx/bgfx.h"
 #include "bgfx/platform.h"
 #include "bx/math.h"
-#include <glfw/glfw3.h>
+#include <glfw/glfw3.h>z
 
 
 #define WNDW_WIDTH 960
@@ -16,8 +16,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 void renderInit() {
 	glfwInit();
 
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	GLFWwindow* window = glfwCreateWindow(WNDW_WIDTH, WNDW_HEIGHT, "LearnOpenGL", NULL, NULL);
