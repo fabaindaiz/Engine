@@ -9,7 +9,7 @@ set(OPENGL_VERSION "44")
 add_subdirectory(ext)
 
 # shaderc
-include(shaderc.cmake)
+#include(shaderc.cmake)
 
 # configure engine library
 add_subdirectory(src)

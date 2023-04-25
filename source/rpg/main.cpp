@@ -1,9 +1,8 @@
 #include <iostream>
-#include "core2d/actor.h"
-#include "core2d/bounding_box.h"
-#include "core2d/vec2.h"
-#include "core2d/vec2_functions.h"
-#include "render/render.h"
+#include "core/actor.h"
+#include "core/bounding_box.h"
+#include "core/vec2.h"
+#include "core/vec2_functions.h"
 
 
 int main()
@@ -46,8 +45,6 @@ int main()
     std::cout << std::endl;
 
     std::cout << "Program ended with no errors" << std::endl;
-
-    renderInit();
 
     return 0;
 }

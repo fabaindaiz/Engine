@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "core2d/vec2.h"
+#include "core/vec2.h"
 #include "color.h"
 
 
@@ -73,6 +73,8 @@ public:
     {
         return { mSize.x() / 2.0f, mSize.y() / 2.0f };
     }
+
+    void setPosition(const Vec2& position);
 };
 
 std::ostream& operator<<(std::ostream& os, const Box& box);

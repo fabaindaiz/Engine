@@ -16,6 +16,6 @@ function(add_engine_subdir FOLDER)
     target_sources(rpg_engine PRIVATE ${SOURCES})
 endfunction(add_engine_subdir)
 
-add_engine_subdir(core2d)
+add_engine_subdir(core)
 add_engine_subdir(inputs)
 add_engine_subdir(render)
