@@ -1,12 +1,13 @@
 add_library(rpg_engine STATIC)
 set_property(TARGET rpg_engine PROPERTY FOLDER lib)
-target_compile_features(rpg_engine PUBLIC cxx_std_17)
+target_compile_features(rpg_engine PUBLIC cxx_std_20)
 
 target_include_directories(rpg_engine PUBLIC ./)
 
-target_link_libraries(rpg_engine PUBLIC bgfx_interface)
-target_link_libraries(rpg_engine PRIVATE glad 
-                                         glfw)
+#target_link_libraries(rpg_engine PUBLIC bgfx_interface)
+target_link_libraries(rpg_engine PUBLIC glad
+                                        glfw
+                                        glm)
 
 function(add_engine_subdir FOLDER)
     set(SOURCES "")
@@ -16,4 +17,5 @@ function(add_engine_subdir FOLDER)
 endfunction(add_engine_subdir)
 
 add_engine_subdir(core2d)
+add_engine_subdir(inputs)
 add_engine_subdir(render)

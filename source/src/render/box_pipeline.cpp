@@ -1,15 +1,15 @@
-
-
 #include "box_pipeline.h"
 #include "shaders_core.h"
 #include <glad/glad.h>
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 ColorBoxShaderProgram::ColorBoxShaderProgram()
 {
     const std::string vertexShaderCode = R"(
-        #version 460 core
+        #version 440 core
 
         in vec3 position;
         uniform mat4 modelTransform;
@@ -21,7 +21,7 @@ ColorBoxShaderProgram::ColorBoxShaderProgram()
     )";
 
     const std::string fragmentShaderCode = R"(
-        #version 460
+        #version 440
 
         uniform vec3 color;
         out vec4 outColor;
@@ -66,4 +66,4 @@ void ColorBoxShaderProgram::drawCall(const DMesh& dMesh) const
     glBindVertexArray(0);
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

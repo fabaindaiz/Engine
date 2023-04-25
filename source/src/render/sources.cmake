@@ -1,3 +1,10 @@
 set(SOURCES
-	render.cpp
+	box.cpp
+	box_pipeline.cpp
+	canvas.cpp
+	color.cpp
+	dmesh.cpp
+	mesh.cpp
+	performance_monitor.cpp
+	shaders_core.cpp
  )

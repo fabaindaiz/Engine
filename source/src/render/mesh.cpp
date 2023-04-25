@@ -1,8 +1,8 @@
-
 #include <glad/glad.h>
 #include "mesh.h"
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 Mesh join(const Mesh& rhs, const Mesh& lhs)
@@ -64,4 +64,4 @@ std::ostream& operator<<(std::ostream& os, const Mesh& mesh)
     return os;
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

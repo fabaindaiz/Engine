@@ -3,7 +3,9 @@
 #include <iostream>
 #include "mesh.h"
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 /* We will use 32 bits data, so floats and integers have 4 bytes.
  * 1 byte = 8 bits
@@ -33,6 +35,6 @@ struct DMesh
     void clear();
 };
 
-std::ostream& operator<<(std::ostream& os, const DMesh& dMesh);
+std::ostream& operator<<(std::ostream& os, const Engine::DMesh& dMesh);
 
-} // namespace BoxRenderer
+} // namespace Engine

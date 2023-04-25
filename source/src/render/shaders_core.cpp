@@ -2,7 +2,9 @@
 #include "shaders_core.h"
 #include <glad/glad.h>
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 namespace
 {
@@ -78,4 +80,4 @@ GPUID createShaderProgramFromCode(std::initializer_list<ShaderCode> shaderCodes)
 	return createShaderProgramCore(shaderCodesVec);
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

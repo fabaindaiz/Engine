@@ -1,11 +1,11 @@
 #include "color.h"
 
-namespace BoxRenderer
+namespace Engine
 {
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Color& color)
+std::ostream& operator<<(std::ostream& os, const Color& color)
 {
     return os << "(" << color.r << ", " << color.g << ", " << color.b << ", " << color.a << ")";
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

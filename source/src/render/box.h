@@ -1,18 +1,27 @@
 #pragma once
 
 #include <iostream>
-#include "vec2.h"
+#include "core2d/vec2.h"
 #include "color.h"
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 class Box
 {
-public:
+private:
+    Vec2 mPosition;
+    Vec2 mSize;
+    Color mColor;
 
-    Box(const Vec2& position, const Color& color, const Vec2& size) :
-        mPosition(position), mColor(color), mSize(size)
+public:
+    Box() = delete;
+
+    Box(const Vec2& position, const Vec2& size, const Color& color) :
+        mPosition(position),
+        mSize(size),
+        mColor(color)
     {}
 
     Vec2& position()
@@ -23,6 +32,16 @@ public:
     const Vec2& position() const
     {
         return mPosition;
+    }
+
+    Vec2& size()
+    {
+        return mSize;
+    }
+
+    const Vec2& size() const
+    {
+        return mSize;
     }
 
     Color& color()
@@ -37,31 +56,25 @@ public:
 
     Vec2 bottomLeft() const
     {
-        return { mSize.x / -2.0f, mSize.y / -2.0f };
+        return { mSize.x() / -2.0f, mSize.y() / -2.0f };
     }
 
     Vec2 bottomRight() const
     {
-        return { mSize.x / 2.0f, mSize.y / -2.0f };
+        return { mSize.x() / 2.0f, mSize.y() / -2.0f };
     }
 
     Vec2 upperLeft() const
     {
-        return { mSize.x / -2.0f, mSize.y / 2.0f };
+        return { mSize.x() / -2.0f, mSize.y() / 2.0f };
     }
 
     Vec2 upperRight() const
     {
-        return { mSize.x / 2.0f, mSize.y / 2.0f };
+        return { mSize.x() / 2.0f, mSize.y() / 2.0f };
     }
-
-private:
-    Vec2 mPosition;
-    Color mColor;
-    Vec2 mSize;
 };
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Box& box);
+std::ostream& operator<<(std::ostream& os, const Box& box);
 
-
-} // namespace BoxRenderer
+} // namespace Engine

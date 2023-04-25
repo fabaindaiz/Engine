@@ -1,58 +1,47 @@
 #include <cmath>
 #include "bounding_box.h"
-#include "vector2d.h"
-#include "vector2d_functions.h"
+#include "vec2.h"
+#include "vec2_functions.h"
 
-BoundingBox::BoundingBox(const Vector2D& position, const Vector2D& size):
-    position(position), size(size)
+
+namespace Engine
 {
+
+void BoundingBox::update(const Vec2& position, const Vec2& size)
+{
+    this -> mPosition = position;
+    this -> mSize = size;
 }
 
-Vector2D BoundingBox::getPosition() const
+void BoundingBox::setPosition(const Vec2& position)
 {
-    return position;
+    this -> mPosition = position;
 }
 
-Vector2D BoundingBox::getSize() const
+void BoundingBox::setSize(const Vec2& size)
 {
-    return size;
+    this -> mSize = size;
 }
 
-void BoundingBox::update(const Vector2D& position, const Vector2D& size)
-{
-    this -> position = position;
-    this -> size = size;
-}
-
-void BoundingBox::setPosition(const Vector2D& position)
-{
-    this -> position = position;
-}
-
-void BoundingBox::setSize(const Vector2D& size)
-{
-    this -> size = size;
-}
-
-bool BoundingBox::inside(const Vector2D& point)
+bool BoundingBox::inside(const Vec2& point)
 {
     return true;
 }
 
-void BoundingBox::enclose(const Vector2D& point)
+void BoundingBox::enclose(const Vec2& point)
 {
     if (this -> inside(point))
         return;
-    const Vector2D size = point - position;
+    const Vec2 size = point - mPosition;
 }
 
 bool BoundingBox::collide(const BoundingBox& box) const
 {
-    const Vector2D distance = this -> getPosition() - box.getPosition();
-    const Vector2D bounding = this -> getSize() + box.getSize();
-    const bool collideX = ( std::abs(distance.getX()) <= std::abs(bounding.getX()) );
-    const bool collideY = ( std::abs(distance.getY()) <= std::abs(bounding.getY()) );
+    const Vec2 distance = this -> position() - box.position();
+    const Vec2 bounding = this -> size() + box.size();
+    const bool collideX = ( std::abs(distance.x()) <= std::abs(bounding.x()) );
+    const bool collideY = ( std::abs(distance.y()) <= std::abs(bounding.y()) );
     return ( collideX && collideY );
 }
 
-
+} // namespace Engine

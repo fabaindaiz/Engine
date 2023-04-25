@@ -1,34 +1,92 @@
 #pragma once
-#include "vector2d.h"
+
+#include "vec2.h"
 #include "bounding_box.h"
+
+
+namespace Engine
+{
 
 class Actor
 {
 private:
-    Vector2D position;
-    Vector2D size;
-    Vector2D velocity;
-    Vector2D acceleration;
-    BoundingBox bounding;
+    Engine::Vec2 mPosition;
+    Engine::Vec2 mSize;
+    Engine::Vec2 mVelocity;
+    Engine::Vec2 mAcceleration;
+    Engine::BoundingBox mBounding;
 
 public:
     Actor() = delete;
-    Actor(const Vector2D& position, const Vector2D& size);
+    Actor(const Vec2& position, const Vec2& size) :
+        mPosition(position),
+        mSize(size),
+        mVelocity(Vec2(0, 0)),
+        mAcceleration(Vec2(0, 0)),
+        mBounding(BoundingBox{ position, size })
+    {
+    }
 
-    Vector2D getPosition() const;
-    Vector2D getSize() const;
-    Vector2D getVelocity() const;
-    Vector2D getAcceleration() const;
-    BoundingBox getBounding() const;
+    Vec2& position()
+    {
+        return mPosition;
+    }
 
-    void update(const Vector2D& position, const Vector2D& size, const Vector2D& velocity, const Vector2D& acceleration);
+    const Vec2& position() const
+    {
+        return mPosition;
+    }
 
-    void setPosition(const Vector2D& position);
-    void setSize(const Vector2D& size);
-    void setVelocity(const Vector2D& velocity);
-    void setAcceleration(const Vector2D& acceleration);
+    Vec2& size()
+    {
+        return mSize;
+    }
 
-    bool collide(const Actor& box) const;
+    const Vec2& size() const
+    {
+        return mSize;
+    }
+
+    Vec2& velocity()
+    {
+        return mVelocity;
+    }
+
+    const Vec2& velocity() const
+    {
+        return mVelocity;
+    }
+
+    Vec2& acceleration()
+    {
+        return mAcceleration;
+    }
+
+    const Vec2& acceleration() const
+    {
+        return mAcceleration;
+    }
+
+    BoundingBox& bounding()
+    {
+        return mBounding;
+    }
+
+    const BoundingBox& bounding() const
+    {
+        return mBounding;
+    }
+
+    void update(const Vec2& position, const Vec2& size, const Vec2& velocity, const Vec2& acceleration);
+
+    void setPosition(const Vec2& position);
+    void setSize(const Vec2& size);
+    void setVelocity(const Vec2& velocity);
+    void setAcceleration(const Vec2& acceleration);
+
+    bool collide(const Actor& actor) const;
 
     void update(float delta_time);
 };
+
+} // namespace Engine

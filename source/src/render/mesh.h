@@ -4,7 +4,8 @@
 #include <string>
 #include <iostream>
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 using Coord = float;
@@ -25,10 +26,10 @@ struct Mesh
 
 Mesh join(const Mesh& rhs, const Mesh& lhs);
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Vertices& vertices);
+std::ostream& operator<<(std::ostream& os, const Engine::Vertices& vertices);
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Indices& indices);
+std::ostream& operator<<(std::ostream& os, const Engine::Indices& indices);
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Mesh& shape);
+std::ostream& operator<<(std::ostream& os, const Engine::Mesh& shape);
 
-} // BoxRenderer
+} // namespace Engine

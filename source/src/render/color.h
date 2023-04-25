@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 struct Color
@@ -23,6 +24,6 @@ struct Color
     static Color Yellow(){ return Color(1,1,0);}
 };
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Color& color);
+std::ostream& operator<<(std::ostream& os, const Color& color);
 
-} // namespace BoxRenderer
+} // namespace Engine

@@ -1,11 +1,13 @@
 #include "box.h"
+#include "core2d/vec2_functions.h"
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
-std::ostream& operator<<(std::ostream& os, const BoxRenderer::Box& box)
+std::ostream& operator<<(std::ostream& os, const Box& box)
 {
     return os << "[color=" << box.color() << "; bottomLeft=" << box.bottomLeft() << "; upperRight=" << box.upperRight() << "]";
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

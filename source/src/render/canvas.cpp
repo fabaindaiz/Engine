@@ -8,7 +8,8 @@
 #include "box_pipeline.h"
 #include "performance_monitor.h"
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 // Wrapper class forward declared in the .h to avoid including GLFW dependecies in the header file.
@@ -28,7 +29,7 @@ Canvas::Canvas(unsigned int width, unsigned int height, std::string const& title
     // Initialize glfw
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 4);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
@@ -81,8 +82,8 @@ Mesh generateMesh(const Box& box)
 
     auto addVertex = [&mesh](Vec2 vertex)
     {
-        mesh.vertices.push_back(vertex.x);
-        mesh.vertices.push_back(vertex.y);
+        mesh.vertices.push_back(vertex.x());
+        mesh.vertices.push_back(vertex.y());
         mesh.vertices.push_back(0.0f);
     };
     
@@ -109,7 +110,7 @@ Mesh generateMesh(const Box& box)
 void Canvas::drawScene()
 {
     auto dummyFunction = [](float dt){return;};
-    ::Alice::Controller controller;
+    ::Engine::Controller controller;
     drawScene(controller, dummyFunction);
 }
 
@@ -120,13 +121,13 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
         return;
 
     auto myUserPointer = glfwGetWindowUserPointer(window);
-    ::Alice::Controller* controller = static_cast<::Alice::Controller*>(myUserPointer);
+    ::Engine::Controller* controller = static_cast<::Engine::Controller*>(myUserPointer);
 
-    ::Alice::Key aliceKey = ::Alice::KeyboardImplementation::toAliceKeyCode(key);
+    ::Engine::Key aliceKey = ::Engine::KeyboardImplementation::toAliceKeyCode(key);
     controller->press(aliceKey);
 }
 
-void Canvas::drawScene(::Alice::Controller& controller, std::function<void(float deltaTime)> updateFunction)
+void Canvas::drawScene(::Engine::Controller& controller, std::function<void(float deltaTime)> updateFunction)
 {
     glfwSetWindowUserPointer(mWindow->glfwWindow, &controller);
 
@@ -186,7 +187,7 @@ void Canvas::drawScene(::Alice::Controller& controller, std::function<void(float
             glUniform3f(glGetUniformLocation(pipeline.shaderProgram, "color"), color.r, color.g, color.b);
 
             glm::mat4 modelTransform(1.0f);
-            modelTransform = glm::translate(modelTransform, glm::vec3(position.x, position.y, 0.0f));
+            modelTransform = glm::translate(modelTransform, glm::vec3(position.x(), position.y(), 0.0f));
             glUniformMatrix4fv(glGetUniformLocation(pipeline.shaderProgram, "modelTransform"), 1, GL_FALSE, &modelTransform[0][0]);
             pipeline.drawCall(dMesh);
         }
@@ -236,4 +237,4 @@ void Canvas::close()
     glfwSetWindowShouldClose(mWindow->glfwWindow, true);
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

@@ -2,10 +2,13 @@
 #pragma once
 
 #include <iostream>
+#include "glad/glad.h"
 #include "mesh.h"
 #include "dmesh.h"
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 /* Convenience function to ease initialization */
 template <typename PipelineT>
@@ -30,4 +33,4 @@ struct ColorBoxShaderProgram
 };
 
 
-} // namespace BoxRenderer
+} // namespace Engine

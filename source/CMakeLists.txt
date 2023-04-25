@@ -16,3 +16,4 @@ add_subdirectory(src)
 
 # add game directory
 add_subdirectory(rpg)
+add_subdirectory(samples)

@@ -1,16 +1,27 @@
 #pragma once
 
 #include <vector>
-#include "../inputs/controller.h"
+#include "inputs/controller.h"
 #include "box.h"
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 using BoxId = std::size_t;
 
 class Canvas
 {
+private:
+    unsigned int mWidth, mHeight;
+    std::string mTitle;
+    Color mClearColor;
+    std::vector<Box> mContent;
+
+    // Forward declaration to interface with third party libs
+    struct Window;
+    std::unique_ptr<Window> mWindow;
+
 public:
     constexpr static unsigned int DEFAULT_WIDTH = 600;
     constexpr static unsigned int DEFAULT_HEIGHT = 600;
@@ -31,7 +42,7 @@ public:
 
     void drawScene();
 
-    void drawScene(::Alice::Controller& controller, std::function<void(float deltaTime)> updateFunction);
+    void drawScene(::Engine::Controller& controller, std::function<void(float deltaTime)> updateFunction);
 
     void clear();
 
@@ -44,16 +55,6 @@ public:
     std::vector<Box> const& getCanvasContent() const;
 
     void close();
-
-private:
-    unsigned int mWidth, mHeight;
-    std::string mTitle;
-    Color mClearColor;
-    std::vector<Box> mContent;
-
-    // Forward declaration to interface with third party libs
-    struct Window;
-    std::unique_ptr<Window> mWindow;
 };
 
-} // namespace BoxRenderer
+} // namespace Engine

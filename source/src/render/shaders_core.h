@@ -4,7 +4,9 @@
 #include "mesh.h"
 #include "dmesh.h"
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 struct ShaderCode
 {
@@ -14,4 +16,4 @@ struct ShaderCode
 
 GPUID createShaderProgramFromCode(std::initializer_list<ShaderCode> shaderCodes);
 
-} // namespace BoxRenderer
+} // namespace Engine

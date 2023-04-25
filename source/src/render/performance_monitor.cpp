@@ -5,7 +5,8 @@
 #include <sstream>
 #include <iomanip>
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 void PerformanceMonitor::update(float currentTime)
@@ -23,7 +24,7 @@ void PerformanceMonitor::update(float currentTime)
     }
 }
 
-std::ostream& operator<<(std::ostream& os, const PerformanceMonitor& perfMonitor)
+std::ostream& operator<<(std::ostream& os, const Engine::PerformanceMonitor& perfMonitor)
 {
     os << std::fixed << std::setprecision(2)
         << "[" << perfMonitor.getFPS() << " fps - "
@@ -31,4 +32,4 @@ std::ostream& operator<<(std::ostream& os, const PerformanceMonitor& perfMonitor
     return os;
 }
 
-} // BoxRenderer
+} // namespace Engine

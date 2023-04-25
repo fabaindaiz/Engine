@@ -2,7 +2,8 @@
 
 #include <iostream>
 
-namespace BoxRenderer
+
+namespace Engine
 {
 
 /** Convenience class to measure simple performance metrics */
@@ -35,6 +36,6 @@ public:
     inline float getMS() const { return _milisecondsPerFrame; }
 };
 
-std::ostream& operator<<(std::ostream& os, const PerformanceMonitor& perfMonitor);
+std::ostream& operator<<(std::ostream& os, const Engine::PerformanceMonitor& perfMonitor);
 
-} // BoxRenderer
+} // namespace Engine

@@ -3,7 +3,9 @@
 #include "dmesh.h"
 #include <glad/glad.h>
 
-namespace BoxRenderer{
+
+namespace Engine
+{
 
 void DMesh::initBuffers()
 {
@@ -40,4 +42,4 @@ std::ostream& operator<<(std::ostream& os, const DMesh& dMesh)
     return os;
 }
 
-} // namespace BoxRenderer
+} // namespace Engine

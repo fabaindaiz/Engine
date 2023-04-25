@@ -1,26 +1,54 @@
 #pragma once
-#include "vector2d.h"
+
+#include "Vec2.h"
+
+
+namespace Engine
+{
 
 class BoundingBox
 {
 private:
-    Vector2D position;
-    Vector2D size;
+    Vec2 mPosition;
+    Vec2 mSize;
 
 public:
     BoundingBox() = delete;
-    BoundingBox(const Vector2D& position, const Vector2D& size);
+    BoundingBox(const Vec2& position, const Vec2& size) :
+        mPosition(position),
+        mSize(size)
+    {
+    }
 
-    Vector2D getPosition() const;
-    Vector2D getSize() const;
+    Vec2& position()
+    {
+        return mPosition;
+    }
 
-    void update(const Vector2D& position, const Vector2D& size);
+    const Vec2& position() const
+    {
+        return mPosition;
+    }
 
-    void setPosition(const Vector2D& position);
-    void setSize(const Vector2D& size);
+    Vec2& size()
+    {
+        return mSize;
+    }
 
-    bool inside(const Vector2D& point);
-    void enclose(const Vector2D& point);
+    const Vec2& size() const
+    {
+        return mSize;
+    }
+
+    void update(const Vec2& position, const Vec2& size);
+
+    void setPosition(const Vec2& position);
+    void setSize(const Vec2& size);
+
+    bool inside(const Vec2& point);
+    void enclose(const Vec2& point);
 
     bool collide(const BoundingBox& box) const;
 };
+
+} // namespace Engine
