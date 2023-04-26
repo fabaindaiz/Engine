@@ -46,7 +46,7 @@ bool BoundingBox::collide(const BoundingBox& box) const
 
 std::ostream& operator<< (std::ostream& os, const BoundingBox& box)
 {
-    return os << "BoundingBox " << "( " << box.position() << ", " << box.size() << ")";
+    return os << "BoundingBox " << "( " << box.position() << ", " << box.size() << " )";
 }
 
 } // namespace Engine

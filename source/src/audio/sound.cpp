@@ -1,12 +1,12 @@
-#ifndef MINIAUDIO_IMPLEMENTATION
+#define MA_NO_DECODING
+#define MA_NO_ENCODING
 #define MINIAUDIO_IMPLEMENTATION
-#endif
 
 #include <stdio.h>
 #include <thread>
-#include <chrono>
 #include <iostream>
 #include "sound.h"
+#include "miniaudio.h"
 
 
 namespace Engine
@@ -15,63 +15,101 @@ namespace Engine
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
 {
     ma_waveform* pSineWave;
-
     MA_ASSERT(pDevice -> playback.channels == DEVICE_CHANNELS);
 
     pSineWave = (ma_waveform*) pDevice -> pUserData;
-    //MA_ASSERT(pSineWave != NULL);
+    MA_ASSERT(pSineWave != NULL);
 
     ma_waveform_read_pcm_frames(pSineWave, pOutput, frameCount, NULL);
 }
 
-int SoundGenerator::init_device()
+SoundManager::SoundManager()
 {
-    mDeviceConfig = ma_device_config_init(ma_device_type_playback);
-    mDeviceConfig.playback.format = DEVICE_FORMAT;
-    mDeviceConfig.playback.channels = DEVICE_CHANNELS;
-    mDeviceConfig.sampleRate = DEVICE_SAMPLE_RATE;
-    mDeviceConfig.dataCallback = Engine::data_callback;
-    mDeviceConfig.pUserData = &(this -> sineWave());
+    ma_device_config deviceConfig = ma_device_config_init(ma_device_type_playback);
+    deviceConfig.playback.format = DEVICE_FORMAT;
+    deviceConfig.playback.channels = DEVICE_CHANNELS;
+    deviceConfig.sampleRate = DEVICE_SAMPLE_RATE;
+    deviceConfig.dataCallback = Engine::data_callback;
+    deviceConfig.pUserData = &mSineWave;
 
-    if (ma_device_init(NULL, &mDeviceConfig, &mDevice) != MA_SUCCESS) {
+    if (ma_device_init(NULL, &deviceConfig, &mDevice) != MA_SUCCESS) {
         printf("Failed to open playback device.\n");
-        return -4;
+        throw;
     }
-
-    return 0;
+    mTimer = 0.0f;
 }
 
-void SoundGenerator::uninit_device()
+void SoundManager::tick(float milliseconds)
 {
-    ma_device_uninit(&mDevice);
+    mTimer -= milliseconds;
+    if (mTimer < 0.0) playNext();
 }
 
-int SoundGenerator::playNote(std::chrono::milliseconds duration, double amplitude, double frecuency)
+void SoundManager::scheduleNote(const Note& note)
 {
-    ma_waveform_config sineWaveConfig;
+    mSchedule.push_back(note);
+}
 
-    sineWaveConfig = ma_waveform_config_init(mDevice.playback.format, mDevice.playback.channels, mDevice.sampleRate, ma_waveform_type_sine, amplitude, frecuency);
-    ma_waveform_init(&sineWaveConfig, &(this -> sineWave()));
+void SoundManager::playNote(const Note& note)
+{
+    /* Other wave types:
+        ma_waveform_type_sine,
+        ma_waveform_type_square,
+        ma_waveform_type_triangle,
+        ma_waveform_type_sawtooth
+    */
+     ma_waveform_config sineWaveConfig = ma_waveform_config_init(
+         mDevice.playback.format,
+         mDevice.playback.channels,
+         mDevice.sampleRate,
+         ma_waveform_type_sine,
+         note.amplitude,
+         note.frecuency);
+    ma_waveform_init(&sineWaveConfig, &mSineWave);
 
     if (ma_device_start(&mDevice) != MA_SUCCESS) {
         printf("Failed to start playback device.\n");
         ma_device_uninit(&mDevice);
-        return -5;
+        throw;
     }
-
-    std::this_thread::sleep_for(duration);
-    //ma_device_stop(&mDevice);
-    return 0;
+    mTimer = note.milliseconds;
 }
 
-void SoundGenerator::stopSound()
+void SoundManager::playNext()
+{
+    if (mSchedule.empty())
+    {
+        ma_device_stop(&mDevice);
+        mTimer = 0.0f;
+        return;
+    }
+
+    Note note = mSchedule.front();
+    mSchedule.pop_front();
+
+    playNote(note);
+}
+
+bool SoundManager::hasSound()
+{
+    return !(mSchedule.empty() && mTimer == 0.f);
+}
+
+void SoundManager::stopSound()
 {
     ma_device_stop(&mDevice);
 }
 
-std::ostream& operator<< (std::ostream& os, const SoundGenerator& sound)
+void SoundManager::clearSound()
 {
-    return os << "SoundGenerator " << "( " << sound.device().playback.name << ")";
+    mSchedule.clear();
+    ma_device_stop(&mDevice);
+    mTimer = 0.0f;
+}
+
+std::ostream& operator<< (std::ostream& os, const SoundManager& sound)
+{
+    return os << "SoundGenerator " << "( " << sound.device().playback.name << ", " << sound.schedule().size() << " )";
 }
 
 } // namespace Engine

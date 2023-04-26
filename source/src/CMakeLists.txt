@@ -7,7 +7,8 @@ target_include_directories(rpg_engine PUBLIC ./)
 #target_link_libraries(rpg_engine PUBLIC bgfx_interface)
 target_link_libraries(rpg_engine PUBLIC glad
                                         glfw
-                                        glm)
+                                        glm
+                                        miniaudio)
 
 function(add_engine_subdir FOLDER)
     set(SOURCES "")

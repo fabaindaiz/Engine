@@ -52,7 +52,7 @@ void Actor::update(float delta_time)
 
 std::ostream& operator<< (std::ostream& os, const Actor& actor)
 {
-    return os << "Actor " << "( " << actor.position() << ", " << actor.size() << ")";
+    return os << "Actor " << "( " << actor.position() << ", " << actor.size() << " )";
 }
 
 } // namespace Engine

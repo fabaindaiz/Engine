@@ -4,6 +4,7 @@
 #define MA_NO_ENCODING
 
 #include <iostream>
+#include <deque>
 #include "miniaudio.h"
 
 #define DEVICE_FORMAT       ma_format_f32
@@ -14,45 +15,51 @@
 namespace Engine
 {
 
-class SoundGenerator
+struct Note
+{
+    int milliseconds;
+    double amplitude, frecuency;
+};
+
+class SoundManager
 {
 private:
     ma_device mDevice;
-
     ma_waveform mSineWave;
-    ma_device_config mDeviceConfig;
+    float mTimer;
+
+    std::deque<Note> mSchedule;
 
 public:
-    SoundGenerator() = default;
+    SoundManager();
 
-    ma_device& device()
+    ~SoundManager()
+    {
+        ma_device_uninit(&mDevice);
+    }
+
+    const ma_device device() const
     {
         return mDevice;
     }
 
-    const ma_device& device() const
+    const std::deque<Note> schedule() const
     {
-        return mDevice;
+        return mSchedule;
     }
 
-    ma_waveform& sineWave()
-    {
-        return mSineWave;
-    }
+    void tick(float milliseconds);
+    void scheduleNote(const Note& note);
 
-    const ma_waveform& sineWave() const
-    {
-        return mSineWave;
-    }
+    void playNote(const Note& note);
+    void playNext();
 
+    bool hasSound();
 
-    int init_device();
-    void uninit_device();
-
-    int playNote(std::chrono::milliseconds duration, double amplitude, double frecuency);
     void stopSound();
+    void clearSound();
 };
 
-std::ostream& operator<< (std::ostream& os, const SoundGenerator& sound);
+std::ostream& operator<< (std::ostream& os, const SoundManager& sound);
 
 } // namespace Engine
