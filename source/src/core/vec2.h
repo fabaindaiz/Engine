@@ -47,4 +47,6 @@ public:
     bool is_normalized() const;
 };
 
+std::ostream& operator<< (std::ostream& os, const Vec2& vector);
+
 } // namespace Engine

@@ -89,4 +89,6 @@ public:
     void update(float delta_time);
 };
 
+std::ostream& operator<< (std::ostream& os, const Actor& actor);
+
 } // namespace Engine

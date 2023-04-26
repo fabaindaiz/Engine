@@ -1,5 +1,3 @@
-
-
 #include "dmesh.h"
 #include <glad/glad.h>
 

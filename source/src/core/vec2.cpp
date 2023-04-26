@@ -27,4 +27,9 @@ bool Vec2::is_normalized() const
     return (*this == this -> normalized());
 }
 
+std::ostream& operator<< (std::ostream& os, const Vec2& vector)
+{
+    return os << "Vec2 " << "( " << vector.x() << ", " << vector.y() << ")";
+}
+
 } // namespace Engine

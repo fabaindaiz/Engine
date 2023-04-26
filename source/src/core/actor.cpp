@@ -50,4 +50,9 @@ void Actor::update(float delta_time)
     this -> mBounding.setPosition(this -> mPosition);
 }
 
+std::ostream& operator<< (std::ostream& os, const Actor& actor)
+{
+    return os << "Actor " << "( " << actor.position() << ", " << actor.size() << ")";
+}
+
 } // namespace Engine

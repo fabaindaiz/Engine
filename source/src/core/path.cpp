@@ -46,4 +46,9 @@ Vec2 Path::travel(float t) const
     }
 }
 
+std::ostream& operator<< (std::ostream& os, const Path& path)
+{
+    return os << "Path " << "( " << path.length() << ")";
+}
+
 } // namespace Engine

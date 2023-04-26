@@ -24,4 +24,6 @@ public:
     Vec2 travel(float t) const;
 };
 
+std::ostream& operator<< (std::ostream& os, const Path& path);
+
 } // namespace Engine

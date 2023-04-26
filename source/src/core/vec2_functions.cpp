@@ -5,9 +5,11 @@
 namespace Engine
 {
 
-std::ostream& operator<< (std::ostream& os, const Vec2& vector)
+float distance(const Vec2& lhs, const Vec2& rhs)
 {
-    return os << "Vec2 " << "( " << vector.x() << ", " << vector.y() << ")";
+    const Vec2 delta = lhs - rhs;
+    const float squaredDistance = delta.x() * delta.x() + delta.y() * delta.y();
+    return std::sqrt(squaredDistance);
 }
 
 bool operator== (const Vec2& lhs, const Vec2& rhs)
@@ -43,13 +45,6 @@ Vec2 operator/ (const Vec2& lhs, float rhs)
 Vec2 operator/ (float lhs, const Vec2& rhs)
 {
     return { lhs / rhs.x(), lhs / rhs.y() };
-}
-
-float distance(const Vec2& lhs, const Vec2& rhs)
-{
-    const Vec2 delta = lhs - rhs;
-    const float squaredDistance = delta.x() * delta.x() + delta.y() * delta.y();
-    return std::sqrt(squaredDistance);
 }
 
 } // namespace Engine

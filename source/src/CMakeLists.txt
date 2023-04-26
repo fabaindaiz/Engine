@@ -17,5 +17,6 @@ function(add_engine_subdir FOLDER)
 endfunction(add_engine_subdir)
 
 add_engine_subdir(core)
+add_engine_subdir(audio)
 add_engine_subdir(inputs)
 add_engine_subdir(render)

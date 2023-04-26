@@ -51,4 +51,6 @@ public:
     bool collide(const BoundingBox& box) const;
 };
 
+std::ostream& operator<< (std::ostream& os, const BoundingBox& box);
+
 } // namespace Engine

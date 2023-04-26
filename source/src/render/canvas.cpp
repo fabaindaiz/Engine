@@ -18,7 +18,12 @@ struct Canvas::Window
     GLFWwindow* glfwWindow;
 };
 
-Canvas::Canvas() : mWidth(DEFAULT_WIDTH), mHeight(DEFAULT_HEIGHT), mTitle(DEFAULT_TITLE) {};
+Canvas::Canvas() :
+    mWidth(DEFAULT_WIDTH),
+    mHeight(DEFAULT_HEIGHT),
+    mTitle(DEFAULT_TITLE)
+{
+};
 
 Canvas::Canvas(unsigned int width, unsigned int height, std::string const& title) :
     mWidth(width),

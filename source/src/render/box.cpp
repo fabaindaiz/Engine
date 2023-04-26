@@ -1,5 +1,4 @@
 #include "box.h"
-#include "core/vec2_functions.h"
 
 
 namespace Engine

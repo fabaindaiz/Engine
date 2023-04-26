@@ -1,34 +1,28 @@
 # Engine
 
-Game Engine focused on Role-playing Games.
+Basic Game Engine.
 
 * Hecho en C++ usando GLFW y OpenGL
 
 ## Instalación
 
-1. git submodule update --init --recursive
-
-## Como ejecutar
-
 1. Clona el repositorio localmente
-2. Entra en la ruta "source/build"
-3. Ejecuta en la consola "cmake ../"
-4. Abre la carpeta "source" desde visual studio
-5. Compila todo el contenido usando el CMakeLists.txt de la raiz
-6. Ejecuta el exe resultante
+2. Ejecuta "git submodule update --init --recursive"
 
-## Avances
+## Como buidear y ejecutar
 
-### Hito1
-
-* Perdi mucho tiempo entendiendo los cmake y como añadir glad y glfw
-* Por ahora se abre una ventana y el resto es output de consola
+1. Entra en la ruta "source/build"
+2. Ejecuta en la consola "cmake ../"
+3. Abre la carpeta "source" desde visual studio
+4. Compila todo el contenido usando el CMakeLists.txt de la raiz
+5. Ejecuta el exe resultante
 
 ## Referencias
 
 #### Engine modules
 
 * [Render module](https://github.com/dantros/box_renderer)
+* [SoundGenerator module](https://miniaud.io/docs/examples/simple_playback_sine.html)
 
 #### Quick start
 

@@ -8,12 +8,9 @@ set(OPENGL_VERSION "44")
 # external dependencies
 add_subdirectory(ext)
 
-# shaderc
-#include(shaderc.cmake)
-
 # configure engine library
 add_subdirectory(src)
 
 # add game directory
-add_subdirectory(rpg)
 add_subdirectory(samples)
+add_subdirectory(tarea1)

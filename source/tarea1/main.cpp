@@ -7,9 +7,17 @@
 
 int main()
 {
+
+    // settings
+    constexpr unsigned int SCR_WIDTH = 600;
+    constexpr unsigned int SCR_HEIGHT = 600;
+
+    //Engine::Canvas canvas(SCR_WIDTH, SCR_HEIGHT, "Hello Box Renderer!");
+    //canvas.setBackgroundColor(Engine::Color::White());
+
     Engine::Actor actor1{ Engine::Vec2{-20, 0}, Engine::Vec2{0.5f, 0.5f}};
     Engine::Actor actor2{ Engine::Vec2{ 20, 0}, Engine::Vec2{0.5f, 0.5f}};
-
+    
     actor1.setVelocity(Engine::Vec2{1, 0});
     actor2.setAcceleration(Engine::Vec2{-0.1f, 0});
 
