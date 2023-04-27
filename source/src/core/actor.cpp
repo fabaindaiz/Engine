@@ -38,9 +38,9 @@ void Actor::setAcceleration(const Vec2& acceleration)
     this -> mAcceleration = acceleration;
 }
 
-bool Actor::collide(const Actor& box) const
+bool Actor::collide(const Actor& actor) const
 {
-    return this -> bounding().collide(box.bounding());
+    return this -> bounding().collide(actor.bounding());
 }
 
 void Actor::update(float delta_time)

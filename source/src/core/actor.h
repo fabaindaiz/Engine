@@ -10,11 +10,11 @@ namespace Engine
 class Actor
 {
 private:
-    Engine::Vec2 mPosition;
-    Engine::Vec2 mSize;
-    Engine::Vec2 mVelocity;
-    Engine::Vec2 mAcceleration;
-    Engine::BoundingBox mBounding;
+    Vec2 mPosition;
+    Vec2 mSize;
+    Vec2 mVelocity;
+    Vec2 mAcceleration;
+    BoundingBox mBounding;
 
 public:
     Actor() = delete;
