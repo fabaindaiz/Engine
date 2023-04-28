@@ -10,3 +10,6 @@
 [submodule "source/ext/font8x8"]
 	path = source/ext/font8x8
 	url = https://github.com/dhepper/font8x8.git
+[submodule "source/ext/miniaudio/include"]
+	path = source/ext/miniaudio/include
+	url = https://github.com/mackron/miniaudio.git

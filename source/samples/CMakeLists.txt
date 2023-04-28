@@ -11,4 +11,3 @@ EngineSample(test_audio test_audio.cpp)
 EngineSample(test_opengl test_opengl.cpp)
 
 EngineSample(test_render test_render.cpp)
-EngineSample(test_graph test_graph.cpp)
