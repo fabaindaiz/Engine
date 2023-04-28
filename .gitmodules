@@ -1,0 +1,15 @@
+[submodule "bgfx.cmake"]
+	path = source/ext/bgfx.cmake
+	url = https://github.com/bkaradzic/bgfx.cmake.git
+[submodule "glfw"]
+	path = source/ext/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "source/ext/glm"]
+	path = source/ext/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "source/ext/font8x8"]
+	path = source/ext/font8x8
+	url = https://github.com/dhepper/font8x8.git
+[submodule "source/ext/miniaudio/include"]
+	path = source/ext/miniaudio/include
+	url = https://github.com/mackron/miniaudio.git
